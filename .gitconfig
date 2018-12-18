@@ -1,0 +1,51 @@
+[user]
+	email = test@test.com
+	name = test
+[alias]
+	st = status
+
+	ap = add -p
+
+	cm = commit -m
+	ca = commit --amend
+
+	b = branch
+	ba = branch -a
+	bd = branch -d
+
+	lo = log --oneline
+	lg = log --graph --all --decorate
+	lgo = log --graph --all --oneline --decorate
+
+	co = checkout
+
+	d = diff
+	d1 = diff HEAD~1
+	d2 = diff HEAD~1 HEAD~2
+
+	fp = format-patch 
+	fp1 = format-patch HEAD~1
+
+	rs = reset --soft
+	rs1 = reset --soft HEAD~1
+
+	rh = reset --hard 
+	rh1 = reset --hard HEAD~1
+
+	clone-branches = "! git branch -a | sed -n \"/\\/HEAD /d; /\\/master$/d; /remotes/p;\" | xargs -L1 git checkout -t"
+[core]
+	autocrlf = true
+	whitespace = cr-at-eol
+[push]
+	default = current
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = false
+[commit]
